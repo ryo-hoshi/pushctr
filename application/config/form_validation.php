@@ -1,6 +1,18 @@
 <?php
 
 $config = array(
+  'login' => array(  // Login用
+        array(
+            'field' => 'user_id',
+            'label' => 'ユーザID',
+            'rules' => 'required|alpha_numeric',
+        ),
+         array(
+            'field' => 'password',
+            'label' => 'パスワード',
+            'rules' => 'required|alpha_numeric|callback__check_user_info',
+        ),
+      ),
   'push' => array(  // PUSH通知用
         array(
             'field' => 'title',

@@ -6,6 +6,7 @@
  </head>
  <body>
      <h1>push通知　メニュー画面</h1>
+     <?php echo $_SESSION['valid_user'] ? 'ログイン中です　　<a href='.$this->config->item('base_url')."/logout".'>ログアウト</a>' : '' ?>
      <h2>メニュー</h2>
      <p>
          <a href=<?php echo $this->config->item('base_url')."/push";?>>通知を送る</a>
