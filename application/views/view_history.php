@@ -7,6 +7,7 @@
  </head>
  <body>
      <h1>push通知　履歴画面</h1>
+     <?php echo $_SESSION['valid_user'] ? 'ログイン中です　　<a href='.$this->config->item('base_url')."/logout".'>ログアウト</a>' : '' ?>
      <h2>通知履歴</h2>
 
     <table border="1" class="push_send">

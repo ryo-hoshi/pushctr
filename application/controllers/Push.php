@@ -19,6 +19,11 @@ class Push extends CI_Controller {
         
      public function index()
      {
+         // ログイン状態でない場合はログイン画面にリダイレクト
+        if (empty($_SESSION['valid_user']) || $_SESSION['valid_user'] === false) {
+            redirect(base_url()."login");
+        }
+         
          // 送信対象取得
          $this->load->model('push_model');
          $result = $this->push_model->get_send_target();
@@ -84,7 +89,7 @@ class Push extends CI_Controller {
      
      public function _check_send_time ($send_time) {
          $sendTimeType = $this->input->post('send_time_type');
-         // 時間指定タイプかつ指定が未入力の場合
+         // 時間指定タイプかつ時間が未入力の場合
          if ("time" == $sendTimeType && empty($send_time)) {
             return false;
          } else {

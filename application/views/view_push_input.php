@@ -7,6 +7,7 @@
 <body>
 
     <h1>PUSH通知管理　通知内容入力</h1>
+    <?php echo $_SESSION['valid_user'] ? 'ログイン中です　　<a href='.$this->config->item('base_url')."/logout".'>ログアウト</a>' : '' ?>
     <?php echo validation_errors(); ?>
     <?php echo form_open('push'); ?>
     <fieldset>
